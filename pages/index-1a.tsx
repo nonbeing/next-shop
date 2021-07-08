@@ -1,4 +1,4 @@
-// Option 1: fetch products on the server side (in getStaticProps)
+// Option 1a: fetch products on the server side (in getStaticProps)
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
