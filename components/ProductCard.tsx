@@ -11,7 +11,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div className="border w-80 shadow hover:shadow-xl">
       <Link href={`/products/${product.id}`}>
         <a>
-          <img src="https://dummyimage.com/320x240" alt="" />
+          <img src={product.pictureUrl} alt="" />
           <div className="p-2 flex justify-between items-baseline">
             <h2 className="text-lg font-bold">
               {product.title}
