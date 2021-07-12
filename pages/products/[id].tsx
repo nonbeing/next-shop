@@ -2,7 +2,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
+import AddToCartWidget from '../../components/AddToCartWidget';
 import Page from '../../components/Page';
+import { useUser } from '../../hooks/user';
 import { ApiError } from '../../lib/api';
 import { getProduct, getProducts, Product } from '../../lib/products';
 
@@ -40,6 +42,8 @@ export const getStaticProps: GetStaticProps<ProductPageProps, ProductPageParams>
 };
 
 const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
+  const user = useUser();
+
   console.log('[ProductPage] render:', product);
   return (
     <Page title={product.title}>
@@ -56,6 +60,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
           <p className="text-lg font-bold mt-2">
             {product.price}
           </p>
+          {user && <AddToCartWidget productId={product.id} />}
         </div>
       </div>
     </Page>
